@@ -3,6 +3,7 @@ class Setor {
   String nome;
   String responsavel;
   int? qtdeMaquina;
+  String codigo;
   int? idEmpresa;
 
   Setor(
@@ -10,6 +11,7 @@ class Setor {
       required this.nome,
       required this.responsavel,
       this.qtdeMaquina,
+      required this.codigo,
       this.idEmpresa});
 
   factory Setor.fromMap(Map<String, dynamic> json) => Setor(
@@ -17,6 +19,7 @@ class Setor {
       nome: json["nome"],
       responsavel: json["responsavel"],
       qtdeMaquina: json["qtdeMaquina"],
+      codigo: json["codigo"],
       idEmpresa: json["idEmpresa"]);
 
   Map<String, dynamic> toMap() {
@@ -25,6 +28,7 @@ class Setor {
       "nome": nome,
       "responsavel": responsavel,
       "qtdeMaquina": qtdeMaquina,
+      "codigo": codigo,
       "idEmpresa": idEmpresa,
     };
     return map;

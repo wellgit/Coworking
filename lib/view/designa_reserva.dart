@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 
 class DesignaReserva extends StatefulWidget {
   DesignaReserva({Key? key}) : super(key: key);
@@ -13,41 +16,56 @@ class _DesignaReservaState extends State<DesignaReserva> {
     return Scaffold(
         appBar: AppBar(
             title: const Text(
-          "Coworking",
+          "Designar/Cancelar Reserva",
           textAlign: TextAlign.center,
         )),
-        body: Container(
-          margin: EdgeInsets.all(15),
-          child: Column(
-            children: [
-              Text(
-                'Responsável da Sala:',
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text('Disponíveis: '),
-                    ElevatedButton(onPressed: alerta, child: Text('Reservar'))
-                  ],
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text('Ocupados: '),
-                    ElevatedButton(onPressed: alerta, child: Text('Desmarcar'))
-                  ],
+                Text(
+                  'Nome Responsável da Sala:',
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 50,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Máquinas disponíveis: 2',
+                          style: TextStyle(fontSize: 15, color: Colors.black)),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/reserva');
+                          },
+                          child: Text('Reservar'))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                          style: ButtonStyle(),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/cancela');
+                          },
+                          child: Text('Remover reservas'))
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }

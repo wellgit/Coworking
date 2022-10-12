@@ -19,41 +19,58 @@ class _HomePageState extends State<HomePage> {
         "Coworking",
         textAlign: TextAlign.center,
       )),
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.all(20),
-            child: Row(
-              children: [
-                const Expanded(
-                    child: TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    hintText: 'Informe o código da sala',
-                  ),
-                  autofocus: true,
-                )),
-                IconButton(
-                    onPressed: alerta(),
-                    icon: const Icon(
-                      Icons.search,
-                      size: 30,
-                      color: Colors.lightGreen,
-                    ))
-              ],
-            ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        padding: const EdgeInsets.all(12),
+        color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 96),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xffbdf9eb),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 19,
+                  vertical: 20,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 235,
+                      height: 22,
+                      child: TextField(
+                        decoration: InputDecoration(
+                            hintText: "Informe o código da sala"),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.search),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/designaReserva');
+                      },
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(height: 96),
+              TextButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/listaSala');
+                },
+                icon: Icon(Icons.send),
+                label: Text('Cadastrar espaço'),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 180,
-          ),
-          Container(
-            child: ElevatedButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ReservaSala())),
-              child: Text('Cadastrar Espaço'),
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

@@ -28,7 +28,14 @@ class _DesignaReservaState extends State<DesignaReserva> {
                   height: 20,
                 ),
                 Text(
-                  'Nome Responsável da Sala:',
+                  'Nome da Sala',
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Nome Responsável da Sala',
                   style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
                 SizedBox(
@@ -60,7 +67,7 @@ class _DesignaReservaState extends State<DesignaReserva> {
                           onPressed: () {
                             Navigator.pushNamed(context, '/cancela');
                           },
-                          child: Text('Remover reservas'))
+                          child: Text('Remover minhas reservas'))
                     ],
                   ),
                 )

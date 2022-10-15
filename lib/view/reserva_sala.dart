@@ -60,7 +60,6 @@ class _ReservaSalaState extends State<ReservaSala> {
 
   @override
   Widget build(BuildContext context) {
-    print("current locale ${Localizations.localeOf(context).languageCode}");
     return Scaffold(
       appBar: AppBar(
         title: Text('Reservar'),
@@ -68,6 +67,7 @@ class _ReservaSalaState extends State<ReservaSala> {
       body: Column(
         children: [
           TableCalendar<Event>(
+            locale: 'pt_BR',
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay,

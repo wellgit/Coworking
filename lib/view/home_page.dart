@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 96),
               TextButton.icon(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/listaSala');
+                  Navigator.pushNamed(context, '/login');
                 },
                 icon: Icon(Icons.send),
                 label: Text('Cadastrar espaço'),

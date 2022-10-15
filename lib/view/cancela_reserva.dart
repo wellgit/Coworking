@@ -1,4 +1,6 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
+import './utils.dart';
 
 class CancelaReserva extends StatefulWidget {
   CancelaReserva({Key? key}) : super(key: key);
@@ -8,6 +10,28 @@ class CancelaReserva extends StatefulWidget {
 }
 
 class _CancelaReservaState extends State<CancelaReserva> {
+  final Set<DateTime> _selectedDaysTemp = LinkedHashSet<DateTime>(
+    equals: isSameDayUtil,
+    hashCode: getHashCode,
+  );
+
+  void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
+    setState(() {
+      if (_selectedDaysTemp.contains(selectedDay)) {
+        _selectedDaysTemp.remove(selectedDay);
+      } else {
+        _selectedDaysTemp.add(selectedDay);
+      }
+    });
+  }
+
+  void _fillDays() {
+    final _today = DateTime.now();
+    for (var i = 0; i < 5; i++) {
+      final aletoryDay = DateTime(_today.year, _today.month - 3, _today.day);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

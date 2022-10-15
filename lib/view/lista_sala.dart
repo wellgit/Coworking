@@ -27,7 +27,7 @@ class _ListaSalaState extends State<ListaSala> {
     return Scaffold(
         appBar: AppBar(
             title: const Text(
-          "Coworking",
+          "Cadastrar Coworking",
           textAlign: TextAlign.center,
         )),
         body: Padding(

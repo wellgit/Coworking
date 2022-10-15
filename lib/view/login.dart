@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
         appBar: AppBar(
             title: const Text(
-          "Coworking",
+          "Login",
           textAlign: TextAlign.center,
         )),
         body: Padding(
@@ -66,8 +66,7 @@ class _LoginState extends State<Login> {
                   child: ElevatedButton(
                     child: const Text('Login'),
                     onPressed: () {
-                      print(emailController.text);
-                      print(passwordController.text);
+                      Navigator.pushNamed(context, '/listaSala');
                     },
                   )),
               Row(
